@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_task_form2" model="ir.ui.view">
+        <field name="name">project.task.form</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project.view_task_form2"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page>
+                    <field
+                        name="calendar_event_ids"
+                        colspan="4" nolabel="1"
+                        context="{
+                            'default_name' : name,
+                            'default_user_id' : uid,
+                            'default_task_id': active_id
+                            }"
+                        >                                  
+                        <tree editable="top" string="Planning">            
+                            <field name="date"/>                                       
+                            <field name="user_id" required="1"/>                       
+                            <field name="name"/>                                       
+                            <field name="task_id" invisible="1" required="1"/>   
+                        </tree>                                                        
+                    </field> 
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
